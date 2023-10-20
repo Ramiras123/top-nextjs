@@ -13,8 +13,12 @@ export default function Home() {
 		<main className={styles.main}>
 			<div className={styles.description}>
 				<Htag tag="h1">Текст</Htag>
-				<Button appearance="primary">Сохранить</Button>
-				<Button appearance="ghost">Сохранить</Button>
+				<Button appearance="primary" arrow="right">
+					Сохранить
+				</Button>
+				<Button appearance="ghost" arrow="right">
+					Сохранить
+				</Button>
 			</div>
 		</main>
 	);
