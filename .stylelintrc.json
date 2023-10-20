@@ -1,8 +1,7 @@
 {
-	"extends": ["stylelint-config-standard", "stylelint-order-config-standard"],
+	"extends": ["stylelint-config-standard", "stylelint-config-clean-order"],
 	"plugins": ["stylelint-order"],
 	"rules": {
-		"color-hex-case": "lower",
 		"selector-class-pattern": "^.*$",
 		"declaration-block-no-redundant-longhand-properties": [
 			true,
