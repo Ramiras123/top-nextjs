@@ -1,5 +1,7 @@
+import { Htag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
+
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
@@ -10,7 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Home() {
 	return (
 		<main className={styles.main}>
-			<div className={styles.description}></div>
+			<div className={styles.description}>
+				<Htag tag="h1">Текст</Htag>
+			</div>
 		</main>
 	);
 }
