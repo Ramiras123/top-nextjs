@@ -1,14 +1,17 @@
-import { Button, Htag, Paragraph, Tag } from '@/components';
+'use client';
+import { Button, Htag, Paragraph, Rating, Tag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
+import { useState } from 'react';
 
-export async function generateMetadata(): Promise<Metadata> {
-	return {
-		title: 'все ок'
-	};
-}
+// export async function generateMetadata(): Promise<Metadata> {
+// 	return {
+// 		title: 'все ок'
+// 	};
+// }
 
 export default function Home() {
+	const [rating, setRating] = useState(0);
 	return (
 		<main className={styles.main}>
 			<div className={styles.description}>
@@ -37,7 +40,10 @@ export default function Home() {
 					dicta. Dolorem sapiente magni voluptates officiis architecto tempora
 					quia qui tenetur.
 				</Paragraph>
-				<Tag appearance='small' color='ghost'>tag</Tag>
+				<Tag appearance="small" color="ghost">
+					tag
+				</Tag>
+				<Rating rating={rating} isEditable setRating={setRating} />
 			</div>
 		</main>
 	);
