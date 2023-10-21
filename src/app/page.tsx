@@ -1,17 +1,15 @@
-'use client';
-import { Button, Htag, Paragraph, Rating, Tag } from '@/components';
+import { Button, Htag, Paragraph, Tag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
-import { useState } from 'react';
+import { ClientRatingComponent } from './ClientComponent';
 
-// export async function generateMetadata(): Promise<Metadata> {
-// 	return {
-// 		title: 'все ок'
-// 	};
-// }
+export async function generateMetadata(): Promise<Metadata> {
+	return {
+		title: 'все ок'
+	};
+}
 
 export default function Home() {
-	const [rating, setRating] = useState(0);
 	return (
 		<main className={styles.main}>
 			<div className={styles.description}>
@@ -43,7 +41,7 @@ export default function Home() {
 				<Tag appearance="small" color="ghost">
 					tag
 				</Tag>
-				<Rating rating={rating} isEditable setRating={setRating} />
+				<ClientRatingComponent />
 			</div>
 		</main>
 	);

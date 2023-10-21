@@ -6,7 +6,6 @@ import StarIcon from './star.svg';
 import { useEffect, useState, KeyboardEvent } from 'react';
 
 export const Rating = ({
-	className,
 	isEditable = false,
 	setRating,
 	rating,
