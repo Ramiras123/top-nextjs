@@ -1,7 +1,7 @@
 import { Button, Htag, Paragraph, Tag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
-import { ClientRatingComponent } from './ClientComponent';
+import { ClientRatingComponent } from '@/ClientComponent';
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
