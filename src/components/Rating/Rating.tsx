@@ -11,6 +11,7 @@ export const Rating = ({
 	rating,
 	...props
 }: RatingProps): JSX.Element => {
+	
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
 		new Array(5).fill(<></>)
 	);
@@ -19,18 +20,18 @@ export const Rating = ({
 		constructRating(rating);
 	}, [rating]);
 
-	const changeDisplay = (i: number) => {
+	const changeDisplay = (index: number) => {
 		if (!isEditable) {
 			return;
 		}
-		constructRating(i);
+		constructRating(index);
 	};
 
-	const onClick = (i: number) => {
+	const onClick = (index: number) => {
 		if (!isEditable || !setRating) {
 			return;
 		}
-		setRating(i);
+		setRating(index);
 	};
 
 	const constructRating = (currentRating: number) => {
@@ -46,6 +47,7 @@ export const Rating = ({
 		});
 		setRatingArray(updatedArray);
 	};
+
 	return (
 		<div {...props}>
 			{ratingArray.map((r: JSX.Element, i: number) => (
