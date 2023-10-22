@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_KR } from 'next/font/google';
 import './globals.css';
+import { Footer, Header, Sidebar } from './components';
 
 const inter = Noto_Sans_KR({
 	subsets: ['latin'],
@@ -19,7 +20,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ru">
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<Header />
+				<Sidebar />
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 }
