@@ -2,6 +2,7 @@ import { Button, Htag, Paragraph, Tag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
 import { ClientRatingComponent } from '@/ClientComponent';
+import Menu from './components/Menu/Menu';
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
@@ -9,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
 	};
 }
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<main className={styles.main}>
 			<div className={styles.description}>
@@ -43,6 +44,7 @@ export default function Home() {
 				</Tag>
 				<ClientRatingComponent />
 			</div>
+			<Menu />
 		</main>
 	);
 }
