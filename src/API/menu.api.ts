@@ -1,4 +1,5 @@
-import { MenuItem, isApiError } from '@/interfaces/menu.interface';
+import { MenuItem } from '@/interfaces/menu.interface';
+import { isApiError } from '@/interfaces/error.interface';
 
 export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
 	try {
@@ -10,7 +11,7 @@ export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
 				headers: new Headers({ 'Content-Type': 'application/json' })
 			}
 		);
-		if (res.status !== 200) {
+		if (!res.ok) {
 			throw new Error(`Ошибка получения данных код ошибки ${res.statusText}`);
 		}
 		const data: MenuItem[] = await res.json();
