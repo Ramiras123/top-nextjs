@@ -4,7 +4,12 @@ import { TopPageModel } from '@/interfaces/page.interface';
 export async function getPage(alias: string): Promise<TopPageModel> {
 	try {
 		const pageResponse = await fetch(
-			process.env.NEXT_PUBLIC_DOMIAN + '/api/top-page/byAlias/' + alias
+			process.env.NEXT_PUBLIC_DOMIAN + '/api/top-page/byAlias/' + alias,
+			{
+				next: {
+					revalidate: 10
+				}
+			}
 		);
 		if (!pageResponse.ok) {
 			throw new Error(

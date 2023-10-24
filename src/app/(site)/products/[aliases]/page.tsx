@@ -30,7 +30,6 @@ export default async function PageProducts({
 	return (
 		<div>
 			{page.title}
-			{products.price}
 		</div>
 	);
 }
