@@ -3,7 +3,7 @@ import { isApiError } from '@/interfaces/error.interface';
 
 export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
 	try {
-		const res = await fetch(
+		const menuResponse = await fetch(
 			process.env.NEXT_PUBLIC_DOMIAN + '/api/top-page/find',
 			{
 				method: 'POST',
@@ -11,11 +11,13 @@ export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
 				headers: new Headers({ 'Content-Type': 'application/json' })
 			}
 		);
-		if (!res.ok) {
-			throw new Error(`Ошибка получения данных код ошибки ${res.statusText}`);
+		if (!menuResponse.ok) {
+			throw new Error(
+				`Ошибка получения данных код ошибки ${menuResponse.statusText}`
+			);
 		}
-		const data: MenuItem[] = await res.json();
-		return data;
+		const menu: MenuItem[] = await menuResponse.json();
+		return menu;
 	} catch (e) {
 		if (isApiError(e)) {
 			throw new Error(

@@ -20,16 +20,12 @@ export async function generateStaticParams() {
 export default async function PageProducts({
 	params
 }: {
-	params: { aliases: string };
+	params: { alias: string };
 }) {
-	const page = await getPage(params.aliases);
+	const page = await getPage(params.alias);
 	const products = await getProducts(page.category);
 	if (!page || !products) {
 		notFound();
 	}
-	return (
-		<div>
-			{page.title}
-		</div>
-	);
+	return <div>{page.title}</div>;
 }
