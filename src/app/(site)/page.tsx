@@ -2,7 +2,6 @@ import { Button, Htag, Paragraph, Tag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
 import { ClientRatingComponent } from '@/ClientComponent';
-import Menu from './components/Menu/Menu';
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
@@ -44,7 +43,6 @@ export default async function Home() {
 				</Tag>
 				<ClientRatingComponent />
 			</div>
-			<Menu />
 		</main>
 	);
 }
