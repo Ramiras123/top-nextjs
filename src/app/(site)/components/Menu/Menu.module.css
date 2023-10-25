@@ -3,11 +3,13 @@
 	grid-template-columns: 24px 1fr;
 	gap: 20px;
 	align-items: center;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
+
 	margin-top: 20px;
+
+	font-size: 18px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: normal;
 }
 
 .first_level__active,
@@ -21,14 +23,16 @@
 }
 
 .second_level {
-	margin-bottom: 10px;
 	cursor: pointer;
-	text-transform: uppercase;
-	color: var(--gray-dark);
+
+	margin-bottom: 10px;
+
 	font-size: 12px;
-	font-style: normal;
 	font-weight: 300;
+	font-style: normal;
 	line-height: normal;
+	color: var(--gray-dark);
+	text-transform: uppercase;
 }
 
 .second_block {
@@ -39,14 +43,17 @@
 }
 
 .third_level {
-	margin-bottom: 10px;
-	display: block;
 	cursor: pointer;
-	color: var(--gray-dark);
+
+	display: block;
+
+	margin-bottom: 10px;
+
 	font-size: 14px;
-	font-style: normal;
 	font-weight: 500;
+	font-style: normal;
 	line-height: normal;
+	color: var(--gray-dark);
 }
 
 .second_level_block__opened {
