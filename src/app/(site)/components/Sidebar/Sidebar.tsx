@@ -3,13 +3,15 @@ import Menu from '../Menu/Menu';
 import { SidebarProps } from './Sidebar.props';
 import { TopLevelCategory } from '@/interfaces/page.interface';
 //import styles from './Sidebar.module.css';
+
+
 export const Sidebar = async ({ ...props }: SidebarProps) => {
 	const menu = await getMenu(TopLevelCategory.Curses);
 	return (
 		<>
 			<Menu
 				firstCategory={TopLevelCategory.Curses}
-				menu={menu}
+				menuItem={menu}
 				{...props}
 			></Menu>
 		</>

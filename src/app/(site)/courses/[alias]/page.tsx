@@ -4,9 +4,14 @@ import { getProducts } from '@/API/products.api';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+	params
+}: {
+	params: { alias: string };
+}): Promise<Metadata> {
+	const page = await getPage(params.alias);
 	return {
-		title: 'Страница продукта'
+		title: page.title
 	};
 }
 
