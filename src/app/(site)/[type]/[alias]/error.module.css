@@ -1,10 +1,12 @@
 .error {
-	border: 1px solid;
+	max-width: 460px;
 	margin: 10px auto;
 	padding: 15px 10px 15px 50px;
+
+	color: #d8000c;
+
+	background-color: #ffbaba;
 	background-repeat: no-repeat;
 	background-position: 10px center;
-	max-width: 460px;
-	color: #d8000c;
-	background-color: #ffbaba;
+	border: 1px solid;
 }

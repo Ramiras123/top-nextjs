@@ -13,7 +13,7 @@ export default function Error({
 	return (
 		<>
 			<div className={styles['error']}>
-				Что то пошло не так - Product {JSON.stringify(error.message)}
+				Что то пошло не так - Product {JSON.stringify(error.stack)}
 			</div>
 			<Button appearance="primary" onClick={() => reset()}>
 				Повторить
