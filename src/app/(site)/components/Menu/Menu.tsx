@@ -6,16 +6,12 @@ import {
 	PageItem
 } from '@/interfaces/menu.interface';
 import { MenuProps } from './Menu.props';
-import CoursesIcon from './icons/courses.svg';
-import ServicesIcon from './icons/services.svg';
-import BooksIcon from './icons/books.svg';
-import ProductIcon from './icons/product.svg';
-import { TopLevelCategory } from '@/interfaces/page.interface';
 import cn from 'classnames';
 import styles from './Menu.module.css';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { firstLevelMenu } from '@/helpers/helpers';
 
 export default function Menu({
 	menuItem,
@@ -23,36 +19,8 @@ export default function Menu({
 	firstCategory,
 	...props
 }: MenuProps) {
-	const router = useRouter();
 	const pathName = usePathname();
 	const [menu, setMenu] = useState<MenuItem[]>(menuItem);
-	const searchParams = useSearchParams();
-	const firstLevelMenu: FirstLevelMenuItem[] = [
-		{
-			route: 'courses',
-			name: 'Курсы',
-			icon: <CoursesIcon />,
-			id: TopLevelCategory.Curses
-		},
-		{
-			route: 'services',
-			name: 'Сервисы',
-			icon: <ServicesIcon />,
-			id: TopLevelCategory.Services
-		},
-		{
-			route: 'books',
-			name: 'Книги',
-			icon: <BooksIcon />,
-			id: TopLevelCategory.Books
-		},
-		{
-			route: 'products',
-			name: 'Товары',
-			icon: <ProductIcon />,
-			id: TopLevelCategory.Products
-		}
-	];
 
 	const openSecondLevel = (secondCategory: string) => {
 		setMenu &&
@@ -94,7 +62,6 @@ export default function Menu({
 				{menu.map((item) => {
 					if (item.pages.map((p) => p.alias).includes(pathName.split('/')[2])) {
 						item.isOpened = true;
-						console.log(item);
 					}
 					return (
 						<div key={item._id.secondCategory}>

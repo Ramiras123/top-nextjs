@@ -1,3 +1,10 @@
-.body {
-	margin: 0;
+.sidebar {
+	display: grid;
+	gap: 20px;
+	align-content: start;
+	margin-top: 34px;
+}
+
+.logo {
+	margin-top: 34px;
 }
