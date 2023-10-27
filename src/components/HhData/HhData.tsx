@@ -30,7 +30,9 @@ export const HhData = ({
 				</div>
 				<div>
 					<div className={styles['state_title']}>Средний</div>
-					<div className={styles['state_salary_value']}>{priceRu(middleSalary)}</div>
+					<div className={styles['state_salary_value']}>
+						{priceRu(middleSalary)}
+					</div>
 					<div className={styles['state_rate']}>
 						<RateIcon className={styles.filled} />
 						<RateIcon className={styles.filled} />
@@ -39,7 +41,9 @@ export const HhData = ({
 				</div>
 				<div>
 					<div className={styles['state_title']}>Профессионал</div>
-					<div className={styles['state_salary_value']}>{priceRu(seniorSalary)}</div>
+					<div className={styles['state_salary_value']}>
+						{priceRu(seniorSalary)}
+					</div>
 					<div className={styles['state_rate']}>
 						<RateIcon className={styles.filled} />
 						<RateIcon className={styles.filled} />
