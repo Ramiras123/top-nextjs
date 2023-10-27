@@ -6,7 +6,7 @@
 		'footer footer footer footer';
 	grid-template-columns: auto 230px minmax(320px, 1200px) auto;
 	grid-template-rows: auto 1fr auto;
-
+	gap: 40px 30px;
 	min-height: 100vh;
 }
 
@@ -21,6 +21,7 @@
 
 .body {
 	grid-area: body;
+	outline: none;
 }
 
 .footer {
@@ -41,6 +42,6 @@
 	}
 
 	.sidebar {
-		display: none;
+		display: none !important;
 	}
 }
