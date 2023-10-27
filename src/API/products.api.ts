@@ -1,7 +1,7 @@
 import { isApiError } from '@/interfaces/error.interface';
 import { ProductModule } from '@/interfaces/product.interface';
 
-export async function getProducts(category: string): Promise<ProductModule> {
+export async function getProducts(category: string): Promise<ProductModule[]> {
 	try {
 		const productResponse = await fetch(
 			process.env.NEXT_PUBLIC_DOMIAN + '/api/product/find',

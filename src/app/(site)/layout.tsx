@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
-import { Footer, Header, Sidebar } from './components';
 import cn from 'classnames';
 import styles from './layout.module.css';
+import { Footer, Header, Sidebar } from './page-components';
 
 const inter = Noto_Sans({
 	subsets: ['latin', 'cyrillic'],

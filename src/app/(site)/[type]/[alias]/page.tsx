@@ -4,6 +4,7 @@ import { getProducts } from '@/API/products.api';
 import { firstLevelMenu } from '@/helpers/helpers';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { TopPageComponent } from './page-components';
 
 export async function generateMetadata({
 	params
@@ -46,5 +47,11 @@ export default async function PageProducts({ params }: { params: PathsItem }) {
 	if (!page || !products || !firstCategoryItem) {
 		notFound();
 	}
-	return <div>{page.title}</div>;
+	return (
+		<TopPageComponent
+			firstCategory={firstCategoryItem.id}
+			page={page}
+			products={products}
+		/>
+	);
 }
