@@ -20,9 +20,12 @@
 html,
 body {
 	overflow-x: hidden;
+
 	max-width: 100vw;
+
 	font-size: var(--font-note);
 	color: var(--black);
+
 	background: #f5f6f8;
 }
 
