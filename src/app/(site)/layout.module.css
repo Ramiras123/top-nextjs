@@ -37,6 +37,9 @@
 			'footer';
 		grid-template-columns: minmax(320px, 1fr);
 	}
+	.body {
+		padding: 15px;
+	}
 
 	.header {
 		display: block;
