@@ -19,10 +19,12 @@
 }
 
 .sort span {
-	display: flex;
-	align-items: center;
-	gap: 8px;
 	cursor: pointer;
+
+	display: flex;
+	gap: 8px;
+	align-items: center;
+
 	white-space: nowrap;
 }
 
