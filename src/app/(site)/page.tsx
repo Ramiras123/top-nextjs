@@ -1,4 +1,4 @@
-import { Button, Htag, Paragraph, Tag } from '@/components';
+import { Button, Htag, Input, Paragraph, Tag } from '@/components';
 import styles from './page.module.css';
 import { Metadata } from 'next';
 import { ClientRatingComponent } from '@/ClientComponent';
@@ -42,6 +42,7 @@ export default async function Home() {
 					tag
 				</Tag>
 				<ClientRatingComponent />
+				<Input placeholder="Имя" />
 			</div>
 		</main>
 	);
