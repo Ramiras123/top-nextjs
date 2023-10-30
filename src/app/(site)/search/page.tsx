@@ -1,3 +1,9 @@
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+
 export default async function PageProducts() {
-	return <div>Search</div>;
+	const getSearch = useSearchParams();
+	const search = getSearch.get('q');
+	return <div>Search {search}</div>;
 }
