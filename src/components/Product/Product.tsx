@@ -4,14 +4,17 @@ import { ProductProps } from './Product.props';
 import styles from './Product.module.css';
 import { Button, Card, Divider, Rating, Tag } from '@/components';
 import { deсlOfNum, priceRu } from '@/helpers/helpers';
+import Image from 'next/image';
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 	return (
 		<Card className={styles['product']}>
 			<div className={styles['logo']}>
-				<img
+				<Image
 					src={process.env.NEXT_PUBLIC_DOMIAN + product.image}
 					alt={product.title}
+					width={70}
+					height={70}
 				/>
 			</div>
 			<div className={styles['title']}>{product.title}</div>
