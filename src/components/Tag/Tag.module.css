@@ -1,8 +1,10 @@
 .tag {
 	display: inline-block;
+
 	box-sizing: border-box;
 	margin-right: 5px;
 	margin-bottom: 5px;
+
 	border-radius: 20px;
 }
 
@@ -19,8 +21,8 @@
 }
 
 .ghost {
-	background-color: var(--white);
 	color: var(--black);
+	background-color: var(--white);
 	border: 1px solid var(--gray-light);
 }
 
