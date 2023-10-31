@@ -22,6 +22,7 @@ export interface ProductModule {
 	reviews: Review[];
 	reviewCount: number;
 	reviewAvg?: number;
+	disadvantages?: string;
 }
 
 export interface Review {
