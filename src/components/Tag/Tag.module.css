@@ -19,8 +19,8 @@
 }
 
 .ghost {
-	color: var(--white);
-	background-color: var(--black);
+	background-color: var(--white);
+	color: var(--black);
 	border: 1px solid var(--gray-light);
 }
 

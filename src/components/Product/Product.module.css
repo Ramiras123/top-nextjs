@@ -33,7 +33,8 @@
 }
 
 .hr,
-.description, .actions {
+.description,
+.actions {
 	grid-column: start / end;
 }
 
@@ -45,3 +46,93 @@
 	grid-column: middle / end;
 }
 
+.logo img {
+	border-radius: 5px;
+}
+
+.title {
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	align-self: flex-end;
+}
+
+.price,
+.credit {
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	align-self: flex-end;
+}
+
+.old-price {
+	margin-left: 5px;
+}
+
+.credit span {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.rating {
+	align-self: flex-end;
+}
+
+.price-title,
+.credit-title,
+.rate-title {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+}
+
+.category {
+	margin-top: 7px;
+}
+
+.description {
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 14px;
+}
+
+.actions {
+	display: flex;
+	gap: 20px;
+}
+
+.adv-block {
+	font-size: 16px;
+	line-height: normal;
+}
+
+.adv-title {
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: 5px;
+}
+
+.advantages {
+	margin-bottom: 20px;
+	display: flex;
+	gap: 15px;
+}
+
+.disadvantages {
+	display: flex;
+	gap: 15px;
+}
+
+.adv-hr {
+	border: 2px solid var(--green);
+	border-radius: 2px;
+}
+
+.disadv-hr {
+	border: 2px solid var(--red);
+	border-radius: 2px;
+}
