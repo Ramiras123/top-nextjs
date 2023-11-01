@@ -5,6 +5,7 @@ import styles from './Product.module.css';
 import { Button, Card, Divider, Rating, Tag } from '@/components';
 import { deсlOfNum, priceRu } from '@/helpers/helpers';
 import Image from 'next/image';
+import classNames from 'classnames';
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 	return (
@@ -81,7 +82,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 					</div>
 				)}
 			</div>
-			<Divider className={styles['hr']} />
+			<Divider className={classNames(styles['hr'], styles['hr2'])} />
 			<div className={styles['actions']}>
 				<Button appearance="primary">Узнать подробнее</Button>
 				<Button appearance="ghost" arrow={'right'}>
