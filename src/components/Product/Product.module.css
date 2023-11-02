@@ -174,7 +174,6 @@
 
 @media screen and (width <= 1320px) {
 	.product {
-		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
 		grid-template-areas:
 			'logo . title title title title title'
 			'logo . tags tags tags tags tags'
@@ -186,6 +185,7 @@
 			'adv-block adv-block adv-block adv-block adv-block adv-block adv-block'
 			'hr2 hr2 hr2 hr2 hr2 hr2 hr2'
 			'actions actions actions actions actions actions actions';
+		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
 	}
 
 	.logo {
@@ -251,7 +251,6 @@
 
 @media screen and (width <= 870px) {
 	.product {
-		grid-template-columns: 70px 30px 1fr;
 		grid-template-areas:
 			'logo . title'
 			'logo . tags'
@@ -264,5 +263,6 @@
 			'adv-block adv-block adv-block'
 			'hr2 hr2 hr2'
 			'actions actions actions';
+		grid-template-columns: 70px 30px 1fr;
 	}
 }

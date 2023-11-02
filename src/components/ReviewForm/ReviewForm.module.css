@@ -1,10 +1,11 @@
 .review-form {
-	font-size: 14px;
-	line-height: 24px;
 	display: grid;
 	grid-template-columns: [start] auto 1fr auto [end];
-	align-items: center;
 	gap: 20px 30px;
+	align-items: center;
+
+	font-size: 14px;
+	line-height: 24px;
 }
 
 .description {
@@ -29,11 +30,13 @@
 }
 
 .success {
-	background: var(--green-light);
-	padding: 20px;
 	position: relative;
-	border-radius: 5px;
+
 	margin-top: 20px;
+	padding: 20px;
+
+	background: var(--green-light);
+	border-radius: 5px;
 }
 
 .success-title {
