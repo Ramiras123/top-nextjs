@@ -106,10 +106,10 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				})}
 			>
 				{product.reviews.map((review) => (
-					<>
-						<Review key={review._id} review={review} />
+					<div key={review._id}>
+						<Review review={review} />
 						<Divider />
-					</>
+					</div>
 				))}
 			</Card>
 		</>
