@@ -7,12 +7,18 @@ import { Button, Input, Rating, Textarea } from '..';
 import CloseIcon from './close.svg';
 import { Controller, useForm } from 'react-hook-form';
 import { IReviewForm } from './ReviewForm.interface';
+import { errorToJSON } from 'next/dist/server/render';
 
 export const ReviewForm = ({
 	productId,
 	...props
 }: ReviewFormProps): JSX.Element => {
-	const { register, handleSubmit, control } = useForm<IReviewForm>();
+	const {
+		register,
+		handleSubmit,
+		control,
+		formState: { errors }
+	} = useForm<IReviewForm>();
 	const onSubmit = (data: IReviewForm) => {
 		console.log(data);
 	};
@@ -20,11 +26,20 @@ export const ReviewForm = ({
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
 			<div className={styles['review-form']} {...props}>
-				<Input {...register('name')} placeholder="Имя" />
 				<Input
-					{...register('title')}
+					{...register('name', {
+						required: { value: true, message: 'Заполните имя' }
+					})}
+					placeholder="Имя"
+					error={errors.name}
+				/>
+				<Input
+					{...register('title', {
+						required: { value: true, message: 'Заполните заголовок' }
+					})}
 					placeholder="Заголовок отзыва"
 					className={styles['title']}
+					error={errors.title}
 				/>
 				<div className={styles['rating']}>
 					<span>Оценка:</span>
@@ -42,9 +57,12 @@ export const ReviewForm = ({
 					/>
 				</div>
 				<Textarea
-					{...register('description')}
+					{...register('description', {
+						required: { value: true, message: 'Заполните отзыв' }
+					})}
 					className={styles['description']}
 					placeholder="Текст отзыва"
+					error={errors.description}
 				/>
 				<div className={styles['submit']}>
 					<Button appearance="primary">Отправить</Button>

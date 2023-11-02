@@ -1,4 +1,6 @@
 .textarea {
+	width: 100%;
+	min-height: 76px;
 	padding: 7px 15px;
 
 	font-family: var(--font-note);
@@ -22,4 +24,22 @@
 	font-style: normal;
 	line-height: normal;
 	color: var(--gray);
+}
+
+.error {
+	border: 1px solid var(--red);
+	outline-color: var(--red);
+}
+
+.input_wrapper {
+	position: relative;
+}
+
+.error_message {
+	position: absolute;
+	bottom: -15px;
+	left: 0;
+
+	font-weight: bold;
+	color: var(--red);
 }

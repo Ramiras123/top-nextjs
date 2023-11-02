@@ -158,9 +158,6 @@
 	border-bottom: 1px dashed var(--gray-light);
 }
 
-.review {
-}
-
 .closed {
 	overflow: hidden;
 	max-height: 0;
