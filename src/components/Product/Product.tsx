@@ -2,7 +2,15 @@
 
 import { ProductProps } from './Product.props';
 import styles from './Product.module.css';
-import { Button, Card, Divider, Rating, Review, Tag } from '@/components';
+import {
+	Button,
+	Card,
+	Divider,
+	Rating,
+	Review,
+	ReviewForm,
+	Tag
+} from '@/components';
 import { deсlOfNum, priceRu } from '@/helpers/helpers';
 import Image from 'next/image';
 import classNames from 'classnames';
@@ -111,6 +119,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 						<Divider />
 					</div>
 				))}
+				<ReviewForm productId={product._id} />
 			</Card>
 		</>
 	);
