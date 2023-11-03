@@ -14,16 +14,24 @@ import {
 import { deсlOfNum, priceRu } from '@/helpers/helpers';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { API } from '@/helpers/api';
-import Error from '../Error/Error';
-import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
+import Link from 'next/link';
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+	const reviewRef = useRef<HTMLDivElement>(null);
+
+	const scrollToReview = () => {
+		setIsReviewOpened(true);
+		reviewRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+		});
+	};
 
 	return (
-		<>
+		<div {...props}>
 			<Card className={styles['product']}>
 				<div className={styles['logo']}>
 					<Image
@@ -59,8 +67,10 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				<div className={styles['price-title']}>цена</div>
 				<div className={styles['credit-title']}>кредит</div>
 				<div className={styles['rate-title']}>
-					{product.reviewCount}{' '}
-					{deсlOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+					<a href="#ref" onClick={scrollToReview}>
+						{product.reviewCount}{' '}
+						{deсlOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+					</a>
 				</div>
 				<Divider className={styles['hr']} />
 				<div className={styles['description']}>{product.description}</div>
@@ -111,6 +121,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 			</Card>
 			<Card
 				color="blue"
+				ref={reviewRef}
 				className={classNames(styles['review'], {
 					[styles['opened']]: isReviewOpened,
 					[styles['closed']]: !isReviewOpened
@@ -122,8 +133,8 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 						<Divider />
 					</div>
 				))}
-					<ReviewForm productId={product._id} />
+				<ReviewForm productId={product._id} />
 			</Card>
-		</>
+		</div>
 	);
 };

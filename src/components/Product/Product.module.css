@@ -94,6 +94,10 @@
 	line-height: normal;
 }
 
+.rate-title a {
+	color: var(--primary);
+}
+
 .category {
 	margin-top: 7px;
 }
