@@ -51,7 +51,9 @@ export default async function PageProducts({ params }: { params: PathsItem }) {
 		<TopPageComponent
 			firstCategory={firstCategoryItem.id}
 			page={page}
-			products={products}
+			products={products.sort((a, b) =>
+				a.initialRating > b.initialRating ? -1 : 1
+			)}
 		/>
 	);
 }

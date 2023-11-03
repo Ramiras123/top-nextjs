@@ -25,17 +25,17 @@ export const TopPageComponent = ({
 		dispatchSort({ type: sort });
 	};
 
-	useEffect(() => {
-		dispatchSort({ type: 'reset', initialState: products });
-	}, [products]);
+	// useEffect(() => {
+	// 	dispatchSort({ type: 'reset', initialState: products });
+	// }, [products]);
 
 	return (
 		<div className={styles['wrapper']}>
 			<div className={styles['title']}>
 				<Htag tag="h1">{page.title}</Htag>
-				{products && (
+				{sortedProducts && (
 					<Tag color="gray" appearance="medium">
-						{products.length}
+						{sortedProducts.length}
 					</Tag>
 				)}
 				<Sort sort={sort} setSort={setSort} />

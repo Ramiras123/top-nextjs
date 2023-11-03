@@ -29,7 +29,7 @@ export const Sort = ({
 				})}
 			>
 				<SortIcon className={styles['sort-icon']} />
-				По рейтингу
+				По цене
 			</span>
 		</div>
 	);
