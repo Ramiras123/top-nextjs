@@ -8,6 +8,7 @@ import CloseIcon from './close.svg';
 import { Controller, useForm } from 'react-hook-form';
 import { IReviewForm } from './ReviewForm.interface';
 import { errorToJSON } from 'next/dist/server/render';
+import { validateHeaderValue } from 'http';
 
 export const ReviewForm = ({
 	productId,
@@ -46,12 +47,19 @@ export const ReviewForm = ({
 					<Controller
 						name="rating"
 						control={control}
+						rules={{
+							required: {
+								value: true,
+								message: 'Укажите рейтинг'
+							}
+						}}
 						render={({ field }) => (
 							<Rating
 								isEditable
 								rating={field.value}
 								setRating={field.onChange}
 								ref={field.ref}
+								error={errors.rating}
 							/>
 						)}
 					/>

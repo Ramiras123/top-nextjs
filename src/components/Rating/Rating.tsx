@@ -7,7 +7,7 @@ import { ForwardedRef, forwardRef, useEffect, useState } from 'react';
 
 export const Rating = forwardRef(
 	(
-		{ isEditable = false, setRating, rating, ...props }: RatingProps,
+		{ isEditable = false, setRating, rating, error, ...props }: RatingProps,
 		ref: ForwardedRef<HTMLDivElement>
 	): JSX.Element => {
 		const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
@@ -47,7 +47,13 @@ export const Rating = forwardRef(
 		};
 
 		return (
-			<div ref={ref} {...props}>
+			<div
+				ref={ref}
+				{...props}
+				className={cn({
+					[styles['error']]: error
+				})}
+			>
 				{ratingArray.map((r: JSX.Element, i: number) => (
 					<button
 						type="button"
@@ -61,6 +67,9 @@ export const Rating = forwardRef(
 						{r}
 					</button>
 				))}
+				{error && (
+					<span className={styles['error_message']}>{error.message}</span>
+				)}
 			</div>
 		);
 	}
