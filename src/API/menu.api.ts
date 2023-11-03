@@ -1,16 +1,14 @@
 import { MenuItem } from '@/interfaces/menu.interface';
 import { isApiError } from '@/interfaces/error.interface';
+import { API } from '@/helpers/api';
 
 export async function getMenu(firstCategory: number): Promise<MenuItem[]> {
 	try {
-		const menuResponse = await fetch(
-			process.env.NEXT_PUBLIC_DOMIAN + '/api/top-page/find',
-			{
-				method: 'POST',
-				body: JSON.stringify({ firstCategory }),
-				headers: new Headers({ 'Content-Type': 'application/json' })
-			}
-		);
+		const menuResponse = await fetch(API.product.find, {
+			method: 'POST',
+			body: JSON.stringify({ firstCategory }),
+			headers: new Headers({ 'Content-Type': 'application/json' })
+		});
 		if (!menuResponse.ok) {
 			throw new Error(
 				`Ошибка получения данных код ошибки ${menuResponse.statusText}`

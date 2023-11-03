@@ -1,16 +1,14 @@
+import { API } from '@/helpers/api';
 import { isApiError } from '@/interfaces/error.interface';
 import { TopPageModel } from '@/interfaces/page.interface';
 
 export async function getPage(alias: string): Promise<TopPageModel> {
 	try {
-		const pageResponse = await fetch(
-			process.env.NEXT_PUBLIC_DOMIAN + '/api/top-page/byAlias/' + alias,
-			{
-				next: {
-					revalidate: 10
-				}
+		const pageResponse = await fetch(API.topPage.byAlias + alias, {
+			next: {
+				revalidate: 10
 			}
-		);
+		});
 		if (!pageResponse.ok) {
 			throw new Error(
 				`Ошибка получения данных код ошибки ${pageResponse.statusText}`

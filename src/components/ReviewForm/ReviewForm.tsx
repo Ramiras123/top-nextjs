@@ -7,8 +7,8 @@ import { Button, Input, Rating, Textarea } from '..';
 import CloseIcon from './close.svg';
 import { Controller, useForm } from 'react-hook-form';
 import { IReviewForm } from './ReviewForm.interface';
-import { errorToJSON } from 'next/dist/server/render';
-import { validateHeaderValue } from 'http';
+import { sendReview } from '@/API/review.api';
+import { useState } from 'react';
 
 export const ReviewForm = ({
 	productId,
@@ -18,10 +18,24 @@ export const ReviewForm = ({
 		register,
 		handleSubmit,
 		control,
-		formState: { errors }
+		formState: { errors },
+		reset
 	} = useForm<IReviewForm>();
-	const onSubmit = (data: IReviewForm) => {
-		console.log(data);
+	const [isSuccess, setIsSuccess] = useState<boolean>(false);
+	const [error, setError] = useState<Error>();
+
+	const onSubmit = async (formdata: IReviewForm) => {
+		const review = await sendReview(formdata, productId);
+		if (review.message.includes('undefined')) {
+			setIsSuccess(false);
+			setError({
+				message: 'Что то пошло не так',
+				name: review.message
+			});
+		} else {
+			setIsSuccess(true);
+			reset();
+		}
 	};
 
 	return (
@@ -80,13 +94,27 @@ export const ReviewForm = ({
 					</span>
 				</div>
 			</div>
-			<div className={styles['success']}>
-				<div className={styles['success-title']}>Ваш отзыв отправлен</div>
-				<div className={styles['success-description']}>
-					Спасибо, ваш отзыв будет опубликован после проверки
+			{isSuccess && (
+				<div className={cn(styles['panel'], styles['success'])}>
+					<div className={styles['success-title']}>Ваш отзыв отправлен</div>
+					<div className={styles['success-description']}>
+						Спасибо, ваш отзыв будет опубликован после проверки
+					</div>
+					<CloseIcon
+						className={styles['close']}
+						onClick={() => setIsSuccess(false)}
+					/>
 				</div>
-				<CloseIcon className={styles['close']} />
-			</div>
+			)}
+			{error && (
+				<div className={cn(styles['panel'], styles['error'])}>
+					{error.message}
+					<CloseIcon
+						className={styles['close']}
+						onClick={() => setError(undefined)}
+					/>
+				</div>
+			)}
 		</form>
 	);
 };

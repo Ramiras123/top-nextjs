@@ -15,6 +15,9 @@ import { deсlOfNum, priceRu } from '@/helpers/helpers';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { useState } from 'react';
+import { API } from '@/helpers/api';
+import Error from '../Error/Error';
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
@@ -24,7 +27,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 			<Card className={styles['product']}>
 				<div className={styles['logo']}>
 					<Image
-						src={process.env.NEXT_PUBLIC_DOMIAN + product.image}
+						src={API.process + product.image}
 						alt={product.title}
 						width={70}
 						height={70}
@@ -119,7 +122,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 						<Divider />
 					</div>
 				))}
-				<ReviewForm productId={product._id} />
+					<ReviewForm productId={product._id} />
 			</Card>
 		</>
 	);
