@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { firstLevelMenu } from '@/helpers/helpers';
+import { motion } from 'framer-motion';
 
 export default function Menu({
 	menuItem,
@@ -21,6 +22,30 @@ export default function Menu({
 }: MenuProps) {
 	const pathName = usePathname();
 	const [menu, setMenu] = useState<MenuItem[]>(menuItem);
+
+	const variants = {
+		visible: {
+			marginBottom: 20,
+			transition: {
+				when: 'beforeChildren',
+				stagerChildren: 0.1
+			}
+		},
+		hidden: {
+			marginBottom: 0
+		}
+	};
+
+	const variantsChildren = {
+		visible: {
+			opacity: 1,
+			height: 'auto'
+		},
+		hidden: {
+			opacity: 0,
+			height: 0
+		}
+	};
 
 	const openSecondLevel = (secondCategory: string) => {
 		setMenu &&
@@ -71,13 +96,15 @@ export default function Menu({
 							>
 								{item._id.secondCategory}
 							</div>
-							<div
-								className={cn(styles['second_level_block'], {
-									[styles['second_level_block__opened']]: item.isOpened
-								})}
+							<motion.div
+								layout
+								variants={variants}
+								initial={item.isOpened ? 'visible' : 'hidden'}
+								animate={item.isOpened ? 'visible' : 'hidden'}
+								className={cn(styles['second_level_block'])}
 							>
 								{buildThirdLevel(item.pages, menuItem.route)}
-							</div>
+							</motion.div>
 						</div>
 					);
 				})}
@@ -87,7 +114,7 @@ export default function Menu({
 
 	const buildThirdLevel = (pages: PageItem[], route: string) => {
 		return pages.map((p) => (
-			<div key={p.alias}>
+			<motion.div key={p.alias} variants={variantsChildren}>
 				<Link
 					href={`/${route}/${p.alias}`}
 					className={cn(styles['third_level'], {
@@ -96,7 +123,7 @@ export default function Menu({
 				>
 					{p.category}
 				</Link>
-			</div>
+			</motion.div>
 		));
 	};
 

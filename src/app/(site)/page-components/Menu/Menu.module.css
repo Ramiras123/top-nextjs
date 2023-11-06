@@ -57,15 +57,7 @@
 }
 
 .second_level_block {
-	display: none;
-}
-
-.second_level_block__opened {
-	display: block;
-}
-
-.second_level_block__opened:last-child {
-	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 .third_level_active,
