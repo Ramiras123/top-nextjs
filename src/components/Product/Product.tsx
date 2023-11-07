@@ -26,9 +26,14 @@ export const Product = motion(
 		): JSX.Element => {
 			const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 			const reviewRef = useRef<HTMLDivElement>(null);
+
 			const variants = {
 				visible: { opacity: 1, height: 'auto' },
-				hidden: { opacity: 0, height: 0 }
+				hidden: {
+					opacity: 0,
+					height: 0,
+					overflow: 'hidden',
+				}
 			};
 
 			const scrollToReview = () => {
@@ -135,22 +140,26 @@ export const Product = motion(
 							</Button>
 						</div>
 					</Card>
-					<Card
-						color="blue"
-						ref={reviewRef}
-						className={classNames(styles['review'], {
-							[styles['opened']]: isReviewOpened,
-							[styles['closed']]: !isReviewOpened
-						})}
+					<motion.div
+						animate={isReviewOpened ? 'visible' : 'hidden'}
+						variants={variants}
+						initial="hidden"
 					>
-						{product.reviews.map((review) => (
-							<div key={review._id}>
-								<Review review={review} />
-								<Divider />
-							</div>
-						))}
-						<ReviewForm productId={product._id} />
-					</Card>
+						<Card
+							color="blue"
+							ref={reviewRef}
+							className={styles['reviews']}
+							tabIndex={isReviewOpened ? 0 : 1}
+						>
+							{product.reviews.map((review) => (
+								<div key={review._id}>
+									<Review review={review} />
+									<Divider />
+								</div>
+							))}
+							<ReviewForm productId={product._id} />
+						</Card>
+					</motion.div>
 				</div>
 			);
 		}

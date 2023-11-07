@@ -173,6 +173,11 @@
 	padding: 30px;
 }
 
+.reviews {
+	overflow: hidden;
+	padding: 30px;
+}
+
 @media screen and (width <= 1320px) {
 	.product {
 		grid-template-areas:

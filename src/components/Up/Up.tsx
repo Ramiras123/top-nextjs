@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './Up.module.css';
-import cn from 'classnames';
 import UpIcon from './arrow-up.svg';
 import { useScrollY } from '@/hooks/useScrollY';
 import { motion, useAnimation } from 'framer-motion';
@@ -26,7 +25,9 @@ export const Up = (): JSX.Element => {
 			className={styles['up']}
 			onClick={scrollToTop}
 			animate={controls}
-			initial={{ opacity: y / document.body.scrollHeight }}
+			initial={{
+				opacity: 0
+			}}
 		>
 			<UpIcon />
 		</motion.button>
