@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './ButtonIcon.module.css';
 import { ButtonIconProps, icons } from './ButtonIcon.props';
 import cn from 'classnames';

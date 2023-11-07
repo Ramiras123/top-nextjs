@@ -24,7 +24,9 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={cn(inter.className, styles['wrapper'])}>
-				<Header className={styles['header']} />
+				<Header className={styles['header']}>
+					<Sidebar />
+				</Header>
 				<Sidebar className={styles['sidebar']} />
 				<div className={styles['body']}>{children}</div>
 				<Footer className={styles['footer']} />
