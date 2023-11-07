@@ -34,8 +34,8 @@
 			'header'
 			'body'
 			'footer';
-		gap: 10px;
 		grid-template-columns: minmax(320px, 1fr);
+		gap: 10px;
 	}
 
 	.body {
