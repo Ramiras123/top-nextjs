@@ -26,6 +26,10 @@ export const Product = motion(
 		): JSX.Element => {
 			const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 			const reviewRef = useRef<HTMLDivElement>(null);
+			const variants = {
+				visible: { opacity: 1, height: 'auto' },
+				hidden: { opacity: 0, height: 0 }
+			};
 
 			const scrollToReview = () => {
 				setIsReviewOpened(true);

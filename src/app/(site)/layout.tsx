@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
-import './globals.css';
+import './styles/globals.css';
 import cn from 'classnames';
-import styles from './layout.module.css';
+import styles from './styles/layout.module.css';
 import { Footer, Header, Sidebar } from './page-components';
+import { Up } from '@/components';
 
 const inter = Noto_Sans({
 	subsets: ['latin', 'cyrillic'],
@@ -27,6 +28,7 @@ export default function RootLayout({
 				<Sidebar className={styles['sidebar']} />
 				<div className={styles['body']}>{children}</div>
 				<Footer className={styles['footer']} />
+				<Up />
 			</body>
 		</html>
 	);

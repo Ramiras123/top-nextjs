@@ -1,5 +1,5 @@
 import { Button, Htag, Input, Paragraph, Tag, Textarea } from '@/components';
-import styles from './page.module.css';
+import styles from './styles/page.module.css';
 import { Metadata } from 'next';
 import { ClientRatingComponent } from '@/ClientComponent';
 
