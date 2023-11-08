@@ -33,6 +33,8 @@
 	line-height: normal;
 	color: var(--gray-dark);
 	text-transform: uppercase;
+
+	outline-offset: -1px;
 }
 
 .second_block {
@@ -54,6 +56,8 @@
 	font-style: normal;
 	line-height: normal;
 	color: var(--gray-dark);
+
+	outline-offset: -1px;
 }
 
 .second_level_block {

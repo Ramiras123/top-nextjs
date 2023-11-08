@@ -5,6 +5,7 @@ import cn from 'classnames';
 import styles from './styles/layout.module.css';
 import { Footer, Header, Sidebar } from './page-components';
 import { Up } from '@/components';
+import { SkipLink } from './page-components/SkipLink/SkipLink';
 
 const inter = Noto_Sans({
 	subsets: ['latin', 'cyrillic'],
@@ -28,7 +29,7 @@ export default function RootLayout({
 					<Sidebar />
 				</Header>
 				<Sidebar className={styles['sidebar']} />
-				<div className={styles['body']}>{children}</div>
+				<SkipLink className={styles['body']}>{children}</SkipLink>
 				<Footer className={styles['footer']} />
 				<Up />
 			</body>

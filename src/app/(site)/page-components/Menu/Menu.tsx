@@ -10,7 +10,7 @@ import cn from 'classnames';
 import styles from './Menu.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import { firstLevelMenu } from '@/helpers/helpers';
 import { motion } from 'framer-motion';
 
@@ -59,6 +59,13 @@ export default function Menu({
 			);
 	};
 
+	const openSecondLevelKey = (key: KeyboardEvent, category: string) => {
+		if (key.code === 'Enter' || key.code === 'Space') {
+			key.preventDefault();
+			openSecondLevel(category);
+		}
+	};
+
 	const buildFirstLevel = () => {
 		return (
 			<>
@@ -91,6 +98,10 @@ export default function Menu({
 					return (
 						<div key={item._id.secondCategory}>
 							<div
+								tabIndex={0}
+								onKeyDown={(key: KeyboardEvent) =>
+									openSecondLevelKey(key, item._id.secondCategory)
+								}
 								className={styles['second_level']}
 								onClick={() => openSecondLevel(item._id.secondCategory)}
 							>
@@ -103,7 +114,11 @@ export default function Menu({
 								animate={item.isOpened ? 'visible' : 'hidden'}
 								className={cn(styles['second_level_block'])}
 							>
-								{buildThirdLevel(item.pages, menuItem.route)}
+								{buildThirdLevel(
+									item.pages,
+									menuItem.route,
+									item.isOpened ?? false
+								)}
 							</motion.div>
 						</div>
 					);
@@ -112,10 +127,15 @@ export default function Menu({
 		);
 	};
 
-	const buildThirdLevel = (pages: PageItem[], route: string) => {
+	const buildThirdLevel = (
+		pages: PageItem[],
+		route: string,
+		isOpened: boolean
+	) => {
 		return pages.map((p) => (
 			<motion.div key={p.alias} variants={variantsChildren}>
 				<Link
+					tabIndex={isOpened ? 0 : -1}
 					href={`/${route}/${p.alias}`}
 					className={cn(styles['third_level'], {
 						[styles['third_level_active']]: `/${route}/${p.alias}` === pathName

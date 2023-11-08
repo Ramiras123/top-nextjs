@@ -21,7 +21,6 @@
 
 .body {
 	grid-area: body;
-	outline: none;
 }
 
 .footer {

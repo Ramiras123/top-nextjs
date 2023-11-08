@@ -1,0 +1,19 @@
+.skip_link {
+	position: fixed;
+	top: 0;
+	left: 100px;
+
+	overflow: hidden;
+	display: block;
+
+	height: 0;
+
+	color: var(--white);
+
+	background: var(--primary);
+}
+
+.display {
+	height: auto;
+}
+
