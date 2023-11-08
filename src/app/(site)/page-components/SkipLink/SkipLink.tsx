@@ -30,7 +30,7 @@ export const SkipLink = ({ children, className, ...props }: SkipLinkProps) => {
 	};
 
 	return (
-		<>
+		<div {...props}>
 			<a
 				tabIndex={1}
 				onFocus={() => setIsSkipLinkDisplayed(true)}
@@ -44,6 +44,6 @@ export const SkipLink = ({ children, className, ...props }: SkipLinkProps) => {
 			<div className={className} tabIndex={0} ref={bodyRef}>
 				{children}
 			</div>
-		</>
+		</div>
 	);
 };
