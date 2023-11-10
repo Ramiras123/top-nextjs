@@ -93,7 +93,7 @@ export const ReviewForm = ({
 					placeholder="Текст отзыва"
 					error={errors.description}
 					tabIndex={isOpened ? 0 : -1}
-					aria-aria-label="Текст отзыва"
+					aria-label="Текст отзыва"
 					aria-invalid={errors.description ? true : false}
 				/>
 				<div className={styles['submit']}>

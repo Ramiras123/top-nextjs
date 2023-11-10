@@ -22,10 +22,16 @@
 	fill: var(--primary);
 }
 
+.first_level_list {
+	padding: 0;
+	list-style: none;
+}
+
 .second_level {
 	cursor: pointer;
 
 	margin-bottom: 10px;
+	padding: 0;
 
 	font-size: 12px;
 	font-weight: 300;
@@ -34,13 +40,18 @@
 	color: var(--gray-dark);
 	text-transform: uppercase;
 
+	background: none;
+	border: none;
 	outline-offset: -1px;
 }
 
 .second_block {
 	margin-top: 15px;
 	margin-left: 12px;
-	padding-left: 32px;
+	padding: 0 0 0 32px;
+
+	list-style: none;
+
 	border-left: 1px solid #dfdfdf;
 }
 
@@ -62,6 +73,8 @@
 
 .second_level_block {
 	overflow: hidden;
+	padding: 0;
+	list-style: none;
 }
 
 .third_level_active,
