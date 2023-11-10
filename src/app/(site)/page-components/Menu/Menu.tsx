@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { KeyboardEvent, useState } from 'react';
 import { firstLevelMenu } from '@/helpers/helpers';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function Menu({
 	menuItem,
@@ -25,14 +25,17 @@ export default function Menu({
 	const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>(
 		undefined
 	);
+	const shouldReduceMotion = useReducedMotion();
 
 	const variants = {
 		visible: {
 			marginBottom: 20,
-			transition: {
-				when: 'beforeChildren',
-				stagerChildren: 0.1
-			}
+			transition: shouldReduceMotion
+				? {}
+				: {
+						when: 'beforeChildren',
+						stagerChildren: 0.1
+				  }
 		},
 		hidden: {
 			marginBottom: 0
@@ -45,7 +48,7 @@ export default function Menu({
 			height: 'auto'
 		},
 		hidden: {
-			opacity: 0,
+			opacity: shouldReduceMotion ? 1 : 0,
 			height: 0
 		}
 	};

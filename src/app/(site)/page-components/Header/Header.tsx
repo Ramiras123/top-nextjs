@@ -5,7 +5,7 @@ import { HeaderProps } from './Header.props';
 import styles from './Header.module.css';
 import Logo from '../../logo.svg';
 import { ButtonIcon } from '@/components';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -16,6 +16,7 @@ export const Header = ({
 }: HeaderProps): JSX.Element => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
 	const router = usePathname();
+	const shouldReduceMotion = useReducedMotion();
 
 	useEffect(() => {
 		setIsOpened(false);
@@ -30,7 +31,7 @@ export const Header = ({
 			}
 		},
 		closed: {
-			opacity: 0,
+			opacity: shouldReduceMotion ? 1 : 0,
 			x: '100%'
 		}
 	};
