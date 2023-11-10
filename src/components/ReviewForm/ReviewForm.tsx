@@ -111,24 +111,30 @@ export const ReviewForm = ({
 				</div>
 			</div>
 			{isSuccess && (
-				<div className={cn(styles['panel'], styles['success'])}>
+				<div className={cn(styles['panel'], styles['success'])} role="alert">
 					<div className={styles['success-title']}>Ваш отзыв отправлен</div>
 					<div className={styles['success-description']}>
 						Спасибо, ваш отзыв будет опубликован после проверки
 					</div>
-					<CloseIcon
-						className={styles['close']}
+					<button
 						onClick={() => setIsSuccess(false)}
-					/>
+						className={styles['close']}
+						aria-label="Закрыть оповещение"
+					>
+						<CloseIcon />
+					</button>
 				</div>
 			)}
 			{error && (
-				<div className={cn(styles['panel'], styles['error'])}>
+				<div className={cn(styles['panel'], styles['error'])} role="alert">
 					{error.message}
-					<CloseIcon
+					<button
 						className={styles['close']}
 						onClick={() => setError(undefined)}
-					/>
+						aria-label="Закрыть оповещение"
+					>
+						<CloseIcon />
+					</button>
 				</div>
 			)}
 		</form>
