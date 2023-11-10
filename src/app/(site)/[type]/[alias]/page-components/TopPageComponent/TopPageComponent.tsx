@@ -30,7 +30,11 @@ export const TopPageComponent = ({
 			<div className={styles['title']}>
 				<Htag tag="h1">{page.title}</Htag>
 				{sortedProducts && (
-					<Tag color="gray" appearance="medium">
+					<Tag
+						color="gray"
+						appearance="medium"
+						aria-label={sortedProducts.length + ' элементов'}
+					>
 						{sortedProducts.length}
 					</Tag>
 				)}

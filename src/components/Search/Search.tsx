@@ -25,12 +25,14 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
 		<div className={cn(className, styles['search'])} {...props}>
 			<Input
 				placeholder="Поиск..."
+				aria-label="Поиск по сайту"
 				value={search}
 				className={styles['input']}
 				onChange={(e) => setSearch(e.target.value)}
 				onKeyDown={handleKeyDown}
 			/>
 			<Button
+				aria-label="Искать по сайту"
 				appearance="primary"
 				className={styles['button']}
 				onClick={goToSearch}
