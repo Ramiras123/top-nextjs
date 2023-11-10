@@ -148,8 +148,8 @@ export default function Menu({
 	};
 
 	return (
-		<div className={cn(className, styles['menu'])} {...props}>
+		<nav role="navigation" className={cn(className, styles['menu'])} {...props}>
 			{buildFirstLevel()}
-		</div>
+		</nav>
 	);
 }
