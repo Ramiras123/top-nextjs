@@ -58,18 +58,28 @@ export const Product = motion(
 						</div>
 						<div className={styles['title']}>{product.title}</div>
 						<div className={styles['price']}>
-							{priceRu(product.price)}
+							<span>
+								<span className={styles['visualy-hidden']}>Цена</span>
+								{priceRu(product.price)}
+							</span>
 							{product.oldPrice && (
 								<Tag color="green" className={styles['old-price']}>
+									<span className={styles['visualy-hidden']}>Скидка</span>
 									{priceRu(product.price - product.oldPrice)}
 								</Tag>
 							)}
 						</div>
 
 						<div className={styles['credit']}>
-							{priceRu(product.credit)}/<span>мес</span>
+							<span>
+								<span className={styles['visualy-hidden']}>Кредит</span>
+								{priceRu(product.credit)}/<span>мес</span>
+							</span>
 						</div>
 						<div className={styles['rating']}>
+							<span className={styles['visualy-hidden']}>
+								{'Рейтинг' + product.reviewAvg ?? product.initialRating}
+							</span>
 							<Rating rating={product.reviewAvg ?? product.initialRating} />
 						</div>
 						<div className={styles['tags']}>
@@ -83,8 +93,12 @@ export const Product = motion(
 								</Tag>
 							))}
 						</div>
-						<div className={styles['price-title']}>цена</div>
-						<div className={styles['credit-title']}>кредит</div>
+						<div className={styles['price-title']} aria-hidden={true}>
+							цена
+						</div>
+						<div className={styles['credit-title']} aria-hidden={true}>
+							кредит
+						</div>
 						<div className={styles['rate-title']}>
 							<a href="#ref" onClick={scrollToReview}>
 								{product.reviewCount}{' '}
