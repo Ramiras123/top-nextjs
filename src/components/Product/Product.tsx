@@ -150,6 +150,7 @@ export const Product = motion(
 								appearance="ghost"
 								arrow={isReviewOpened ? 'down' : 'right'}
 								onClick={() => setIsReviewOpened(!isReviewOpened)}
+								aria-expanded={true}
 							>
 								Читать отзывы
 							</Button>

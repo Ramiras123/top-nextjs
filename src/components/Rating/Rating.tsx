@@ -113,12 +113,22 @@ export const Rating = forwardRef(
 						onMouseLeave={() => changeDisplay(rating)}
 						onClick={() => onClick(i + 1)}
 						onKeyDown={handleKey}
+						role={isEditable ? 'slider' : ''}
+						aria-valuenow={rating}
+						aria-valuemax={5}
+						aria-valuemin={1}
+						aria-label={
+							isEditable ? 'Укажите рейтинг стрелками' : 'рейтинг' + rating
+						}
+						aria-invalid={error ? true : false}
 					>
 						{r}
 					</button>
 				))}
 				{error && (
-					<span className={styles['error_message']}>{error.message}</span>
+					<span role="alert" className={styles['error_message']}>
+						{error.message}
+					</span>
 				)}
 			</div>
 		);
