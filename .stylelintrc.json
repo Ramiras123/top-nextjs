@@ -1,6 +1,7 @@
 {
 	"extends": ["stylelint-config-standard", "stylelint-config-clean-order"],
 	"plugins": ["stylelint-order"],
+	"ignoreFiles": [ "out/**"],
 	"rules": {
 		"selector-class-pattern": "^.*$",
 		"declaration-block-no-redundant-longhand-properties": [
