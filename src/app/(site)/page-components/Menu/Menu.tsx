@@ -35,7 +35,7 @@ export default function Menu({
 				: {
 						when: 'beforeChildren',
 						stagerChildren: 0.1
-				  }
+				}
 		},
 		hidden: {
 			marginBottom: 0

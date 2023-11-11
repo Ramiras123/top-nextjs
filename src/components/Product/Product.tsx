@@ -12,7 +12,6 @@ import {
 	Tag
 } from '@/components';
 import { deсlOfNum, priceRu } from '@/helpers/helpers';
-import Image from 'next/image';
 import classNames from 'classnames';
 import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { API } from '@/helpers/api';
@@ -49,7 +48,7 @@ export const Product = motion(
 				<div {...props} ref={ref}>
 					<Card className={styles['product']}>
 						<div className={styles['logo']}>
-							<Image
+							<img
 								src={API.process + product.image}
 								alt={product.title}
 								width={70}
