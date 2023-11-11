@@ -5,16 +5,24 @@ import { firstLevelMenu } from '@/helpers/helpers';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { TopPageComponent } from './page-components';
+import { OpengraphTags } from '@/helpers/opengraph';
 
 export async function generateMetadata({
 	params
 }: {
-	params: { alias: string };
+	params: { alias: string; type: string };
 }): Promise<Metadata> {
 	const page = await getPage(params.alias);
 
 	return {
-		title: page.title
+		title: page.metaTitle,
+		description: page.metaDescription,
+		openGraph: {
+			...OpengraphTags,
+			url: OpengraphTags.url + '/' + params.type + '/' + params.alias,
+			title: page.metaTitle,
+			description: page.metaDescription
+		}
 	};
 }
 
