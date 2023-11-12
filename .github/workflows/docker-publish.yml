@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@v5
+        uses: elgohr/Publish-Docker-Github-Action
         with:
-          registry: docker.pkg.github.com
-          name: docker.pkg.github.com/miras123/top-nextjs/top-app
+          registry: ghcr.io
+          name: ghcr.io/miras123/top-nextjs/top-app
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "develop"
