@@ -14,8 +14,8 @@ jobs:
       - name: Publish to Registry
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: top-app
-          registry: ghcr.io
+          image: github-repo/top-app
+          registry: docker.pkg.github.com
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: 'develop'
