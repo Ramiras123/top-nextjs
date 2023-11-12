@@ -16,7 +16,6 @@ jobs:
         with:
           image: top-app
           registry: ghcr.io
-          githubOrg: override-org # optional
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: 'develop'
