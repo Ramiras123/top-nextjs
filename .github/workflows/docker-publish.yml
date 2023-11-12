@@ -4,7 +4,7 @@ name: Publish Docker
 # events but only for the master branch
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Publish to Registry
-        uses: mr-smithers-excellent/docker-build-push@v6
+        uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          image: github-repo/top-app
           registry: docker.pkg.github.com
+          name: docker.pkg.github.com/Ramiras123/top-nextjs/top-app
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: 'develop'
+          tags: "develop"
