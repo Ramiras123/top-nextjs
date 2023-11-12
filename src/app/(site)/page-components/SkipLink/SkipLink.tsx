@@ -32,7 +32,7 @@ export const SkipLink = ({ children, className, ...props }: SkipLinkProps) => {
 	return (
 		<>
 			<a
-				tabIndex={1}
+				tabIndex={0}
 				onFocus={() => setIsSkipLinkDisplayed(true)}
 				className={classNames(styles['skip_link'], {
 					[styles['display']]: isSkipLinkDisplayed

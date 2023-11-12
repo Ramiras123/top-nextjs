@@ -28,7 +28,12 @@ export const Up = (): JSX.Element => {
 				opacity: 0
 			}}
 		>
-			<ButtonIcon appearance="primary" icon="up" onClick={scrollToTop} />
+			<ButtonIcon
+				appearance="primary"
+				icon="up"
+				onClick={scrollToTop}
+				aria-label="Подняться на верх"
+			/>
 		</motion.div>
 	);
 };
