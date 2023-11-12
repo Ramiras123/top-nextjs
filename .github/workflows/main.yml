@@ -18,5 +18,5 @@ jobs:
           name: docker.pkg.github.com/ramiras123/top-nextjs/top-nextjs
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          dockerfile: Dockerfile
+          dockerfile: dockerfile
           tags: "develop"
