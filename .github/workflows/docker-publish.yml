@@ -15,7 +15,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action
         with:
           registry: ghcr.io
-          name: ghcr.io/miras123/top-nextjs/top-app
+          name: ghcr.io/ramiras123/top-nextjs/top-app
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "develop"
