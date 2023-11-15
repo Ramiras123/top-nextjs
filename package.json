@@ -1,6 +1,6 @@
 {
 	"name": "top-app",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"private": true,
 	"scripts": {
 		"prepare": "husky install",
@@ -10,7 +10,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"stylelint": "stylelint \"**/*.css\" --fix",
-		"export": "next export"
+		"export": "next export",
+		"cypress:open": "cypress open"
 	},
 	"dependencies": {
 		"classnames": "^2.3.2",
@@ -30,6 +31,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.8.0",
 		"@typescript-eslint/parser": "^6.8.0",
 		"cross-env": "^7.0.3",
+		"cypress": "^13.5.1",
 		"eslint": "^8.51.0",
 		"eslint-config-next": "13.5.6",
 		"husky": "^8.0.3",
