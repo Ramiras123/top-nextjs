@@ -9,6 +9,7 @@ import { SkipLink } from './page-components/SkipLink/SkipLink';
 import { OpengraphTags } from '@/helpers/opengraph';
 import Script from 'next/script';
 import YandexMetrika from '@/components/YandexMetrika/YandexMetrika';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Noto_Sans({
 	subsets: ['latin', 'cyrillic'],
@@ -34,7 +35,6 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ru">
-
 			<body className={cn(inter.className, styles['wrapper'])}>
 				<Script id="metrika-counter" strategy="afterInteractive">
 					{`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -59,6 +59,7 @@ export default function RootLayout({
 				<SkipLink className={styles['body']}>{children}</SkipLink>
 				<Footer className={styles['footer']} />
 				<Up />
+				<Analytics />
 			</body>
 		</html>
 	);
