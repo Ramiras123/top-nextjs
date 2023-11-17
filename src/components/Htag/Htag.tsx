@@ -3,5 +3,9 @@ import styles from './Htag.module.css';
 
 export const Htag = ({ tag, children }: HtagProps): JSX.Element => {
 	const Tag = tag;
-	return <Tag className={styles[tag]}>{children}</Tag>;
+	return (
+		<Tag className={styles[tag]} data-cy="Htag">
+			{children}
+		</Tag>
+	);
 };
