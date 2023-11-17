@@ -34,6 +34,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ru">
+
 			<body className={cn(inter.className, styles['wrapper'])}>
 				<Script id="metrika-counter" strategy="afterInteractive">
 					{`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

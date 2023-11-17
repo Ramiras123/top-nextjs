@@ -11,7 +11,11 @@
 		"lint": "next lint",
 		"stylelint": "stylelint \"**/*.css\" --fix",
 		"export": "next export",
-		"cypress:open": "cypress open"
+		"cypress:open": "cypress open",
+		"e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+		"e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
+		"component": "cypress open --component",
+		"component:headless": "cypress run --component"
 	},
 	"dependencies": {
 		"classnames": "^2.3.2",
@@ -35,6 +39,7 @@
 		"eslint": "^8.51.0",
 		"eslint-config-next": "13.5.6",
 		"husky": "^8.0.3",
+		"start-server-and-test": "^2.0.2",
 		"stylelint": "^15.11.0",
 		"stylelint-config-clean-order": "^5.2.0",
 		"stylelint-config-standard": "^34.0.0",
