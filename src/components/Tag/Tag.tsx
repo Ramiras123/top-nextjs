@@ -18,6 +18,7 @@ export const Tag = ({
 				styles[appearance],
 				styles[color]
 			)}
+			data-cy='tag'
 			{...props}
 		>
 			{href ? <a href={href}>{children}</a> : <>{children}</>}
