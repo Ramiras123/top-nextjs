@@ -6,7 +6,7 @@ export const Advantages = ({ advantages }: AdvantagesProps): JSX.Element => {
 	return (
 		<>
 			{advantages.map((a) => (
-				<div key={a._id} className={styles['advantage']}>
+				<div key={a._id} className={styles['advantage']} data-cy='advantages'>
 					<CheckIcon />
 					<div className={styles['title']}>{a.title}</div>
 					<hr className={styles['vline']} />
