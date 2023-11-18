@@ -16,6 +16,7 @@ export const Button = ({
 	return (
 		<motion.button
 			whileHover={{ scale: 1.05 }}
+			data-cy="button"
 			className={cn(styles['button'], className, {
 				[styles['primary']]: appearance === 'primary',
 				[styles['ghost']]: appearance === 'ghost'
